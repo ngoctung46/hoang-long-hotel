@@ -1,0 +1,58 @@
+<div class="booking-form">
+  <form #bookingForm="ngForm" name="bookingForm">
+    <div class="col-md-6">
+
+      <h5>NAME - TÊN</h5>
+      <input type="text" value="" [(ngModel)]="data.firstName" name="firstName" required minlength="4" maxlength="24">
+      <div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)"
+             class="alert alert-danger">
+            <div [hidden]="!firstName.errors.required">
+              Name is required
+            </div>
+            <div [hidden]="!firstName.errors.minlength">
+              Name must be at least 4 characters long.
+            </div>
+            <div [hidden]="!firstName.errors.maxlength">
+              Name cannot be more than 24 characters long.
+            </div>
+      </div>
+      <h5>SUR NAME - HỌ</h5>
+      <input type="text" value="" [(ngModel)]="data.lastName" name="lastName">
+      <h5>E-MAIL</h5>
+      <input type="text" value="" [(ngModel)]="data.email" name="email">
+      <h5>PHONE - ĐIỆN THOẠI</h5>
+      <input type="text" value="" [(ngModel)]="data.tel" name="telephone">
+      <h5>TIME - THỜI GIAN NHẬN PHÒNG</h5>
+      <input type="text" value="" class="time" [(ngModel)]="data.time" name="time">
+    </div>
+    <div class="col-md-6">
+      <h5>CHECK IN - NGÀY NHẬN PHÒNG</h5>
+      <select class="arrival" [(ngModel)]="data.dayCheckIn" name="dayCheckIn">
+								 <option *ngFor="let option of options" [value]="option" >{{ option }}</option>
+		  </select>
+      <select class="arrival" [(ngModel)]="data.monthCheckIn" name="monthCheckIn">
+								 <option *ngFor="let month of months" [value]="month" >{{ month }}</option>								 
+							 </select>
+      <select class="arrival">						
+								<option>2017</option>
+			</select>
+      <h5>CHECK OUT - NGÀY TRẢ PHÒNG</h5>
+      <select class="arrival" [(ngModel)]="data.dayCheckOut" name="dayCheckOut">
+								 <option *ngFor="let option of options" [value]="option" >{{ option }}</option>
+		  </select>
+      <select class="arrival" [(ngModel)]="data.monthCheckOut" name="monthCheckOut">
+								 <option *ngFor="let month of months" [value]="month" >{{ month }}</option>								 
+							 </select>
+      <select class="arrival">						
+								<option>2017</option>
+			</select>
+      <h5 class="mem">MEMBERS - SỐ LƯỢNG KHÁCH Ở</h5>
+      <input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small" [(ngModel)]="data.member" name="member">
+      <h5>REQUIRED - YÊU CẦU (NẾU CÓ)</h5>
+      <textarea value="" [(ngModel)]="data.requirement" name="requirement"></textarea>
+      <input type="submit" value="Submit"  [disabled]="!bookingForm.form.valid" (click)="onSubmit()">
+      <input type="reset" value="Reset">
+    </div>
+  </form>
+  <p> {{ diagnostic }} </p>
+</div>

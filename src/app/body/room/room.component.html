@@ -1,0 +1,20 @@
+<!-- single -->
+<div class="single">
+  <div class="container">
+    <div *ngFor="let room of rooms" class="single-top">
+      <div class="col-md-6 single-left">
+        <a href="details.html"><img [src]="room.imageUrls[0]" class="img-responsive" alt=""></a>
+      </div>
+      <div class="col-md-6 single-right" >
+        <div [innerHTML] ="room.summary"></div>
+        <br/>
+        <div [innerHTML] ="room.translatedSummary"></div>
+        <div class="sinbt">
+          <a class="hvr-shutter-in-horizontal" [routerLink]="['/room', room.id]">Book Now - Đặt Phòng</a>
+        </div>
+      </div>
+      <div class="clearfix"> </div>
+    </div>
+  </div>
+  <div class="clearfix"> </div>
+</div>

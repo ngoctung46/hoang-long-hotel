@@ -9,7 +9,19 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { HeaderModule } from './header/header.module';
 import { BodyModule } from './body/body.module';
 import { FooterModule } from './footer/footer.module';
+import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import 'hammerjs';
+
+export const config = {
+    apiKey: "AIzaSyCJ-mj_VRzyms0XGJz8MXH2PmIjWE6T6DM",
+    authDomain: "hoang-long-hotel.firebaseapp.com",
+    databaseURL: "https://hoang-long-hotel.firebaseio.com",
+    projectId: "hoang-long-hotel",
+    storageBucket: "hoang-long-hotel.appspot.com",
+    messagingSenderId: "843555283760"
+}
 
 @NgModule({
   declarations: [
@@ -23,7 +35,10 @@ import 'hammerjs';
     HeaderModule,
     AngularMaterialModule,
     BodyModule,
-    FooterModule
+    FooterModule,
+    AppRoutingModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

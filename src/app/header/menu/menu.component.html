@@ -15,7 +15,7 @@
       <!--/.navbar-header-->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li *ngFor = "let menuItem of menu"><a href="{{ menuItem.url }}}">{{ menuItem.name }}</a></li>         
+          <li *ngFor = "let menuItem of menu" i18n><a [routerLink]="menuItem.url" routerLinkActive="active">{{ menuItem.name }}</a></li>         
         </ul>
       </div>
       <!--/.navbar-collapse-->
